@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+#top {
+  background: url('/assets/images/landscape.jpg') no-repeat center center/cover;
+  height: 260px;
+  overflow: hidden;
+}
+
+#menu {
+  display: inline-block;
+}
+
+#content {
+  padding: 0;
+  margin: 0;
+  float: right;
+  align-content: center;
+}
