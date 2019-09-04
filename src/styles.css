@@ -1,6 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+
+body {
+  background: grey;
+  color: #444;
+}
+
 #top {
   background: url('/assets/images/landscape.jpg') no-repeat center 66%/cover;
   height: 130px;
@@ -10,6 +16,7 @@
 #menu {
   display: inline-block;
   width: 20%;
+  height: 800px;
 }
 
 #content {
@@ -30,4 +37,9 @@ body {
 
 .bg-orange {
   color: orange;
+}
+
+#main-footer {
+  color: #fff;
+  text-align: center;
 }
