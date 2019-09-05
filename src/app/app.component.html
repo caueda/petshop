@@ -1,63 +1,23 @@
-<div class="container">
-
   <div id="top" class="row">
       <h1 class="logo">
-          <span class="bg-orange"><i class="fa fa-cog fa-spin"></i> Pet</span>Shop
-        </h1>
+        <span class="bg-orange"><i class="fa fa-cog fa-spin"></i> Pet</span>Shop
+       </h1>
   </div>
 
-    <div class="row">
-        <div id="menu" class="well">
-            <div style="overflow-y: auto; overflow-x: hidden; height: 100%;">
-                <ul class="nav nav-list">
-                    <li><label class="tree-toggler nav-header">Pet1</label>
-                        <ul class="nav nav-list tree">
-                            <li><a routerLink="/client">Client</a></li>
-                            <li><a [routerLink]="['/pet']">Pet</a></li>
-                        </ul>
-                    </li>
-                    <li class="divider"></li>
-                    <li><label class="tree-toggler nav-header">Header 2</label>
-                        <ul class="nav nav-list tree">
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><label class="tree-toggler nav-header">Header 2.1</label>
-                                <ul class="nav nav-list tree">
-                                    <li><a href="#">Link</a></li>
-                                    <li><a href="#">Link</a></li>
-                                    <li><label class="tree-toggler nav-header">Header 2.1.1</label>
-                                        <ul class="nav nav-list tree">
-                                            <li><a href="#">Link</a></li>
-                                            <li><a href="#">Link</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <app-navbar></app-navbar>
 
-      <div id="content">
-          <router-outlet></router-outlet>
-      </div>
-    </div>
+  <div class="container" style="padding: 1.1rem 1.1rem;">
     <div class="row">
+        <div class="col">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
       <footer id="main-footer">
         <p>Copyright &#169; 2019, PetShop, All Rights Reserved</p>
       </footer>
     </div>
   </div>
-
-  <script>
-    $(document).ready(function () {
-      $('label.tree-toggler').click(function () {
-        $(this).parent().children('ul.tree').toggle(300);
-      });
-    });
-  </script>
-
-
-
-
