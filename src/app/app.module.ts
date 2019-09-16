@@ -1,31 +1,91 @@
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './security/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { PetComponent } from './pet/pet.component';
 import { NavbarComponent } from './element/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const appRoutes: Routes = [
-  {path: 'pet', component: PetComponent},
-  {path: 'client', component: ClientComponent}
-];
+
+
+import { FormsModule } from '@angular/forms';
+
+
+
+import { AppComponent } from './app.component';
+
+import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonToggleModule,
+         MatProgressSpinnerModule, MatSelectModule, MatSlideToggleModule, MatDialogModule, MatSnackBarModule, MatToolbarModule,
+         MatTabsModule, MatSidenavModule, MatTooltipModule, MatRippleModule, MatRadioModule, MatGridListModule,
+         MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule } from '@angular/material';
+
+import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule,
+         CovalentStepsModule, CovalentLoadingModule, CovalentDialogsModule, CovalentSearchModule, CovalentPagingModule,
+         CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
+import { AuthService } from './security/auth.service';
+import { ErrorComponent } from './error/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientComponent,
     PetComponent,
-    NavbarComponent
+    NavbarComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    CollapseModule.forRoot(), BsDropdownModule.forRoot()
+    CollapseModule.forRoot(), BsDropdownModule.forRoot(),
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule,
+    /** Material Modules */
+    MatButtonModule,
+    MatListModule,
+    MatIconModule,
+    MatCardModule,
+    MatMenuModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatRippleModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    MatAutocompleteModule,
+    /** Covalent Modules */
+    CovalentCommonModule,
+    CovalentLayoutModule,
+    CovalentMediaModule,
+    CovalentExpansionPanelModule,
+    CovalentStepsModule,
+    CovalentDialogsModule,
+    CovalentLoadingModule,
+    CovalentSearchModule,
+    CovalentPagingModule,
+    CovalentNotificationsModule,
+    CovalentMenuModule,
+    CovalentDataTableModule,
+    CovalentMessageModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

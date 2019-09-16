@@ -1,36 +1,13 @@
-<form class="form-horizontal">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="name" class="control-label col-xs-3">Nome</label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" id="name" placeholder="Nome do seu animalzinho">
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group">
-                <label for="breed" class="control-label col-xs-3">Raça</label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" id="breed" placeholder="Insira a raça">
-                </div>
-            </div>
-        </div>
+<form>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Pet</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div class="mat-padding">
+      <mat-form-field>
+        <input matInput tdAutoTrim placeholder="Pet" name=petName>
+      </mat-form-field>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="weight" class="control-label col-xs-3">Peso</label>
-                <div class="col-xs-9">
-                    <input type="number" class="form-control" id="weight" placeholder="Insira o peso">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            <button type="reset" class="btn btn-secondary mr-1">Reset</button>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-    </div>
+  </mat-card>
 </form>
