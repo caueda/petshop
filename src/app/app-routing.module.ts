@@ -7,8 +7,11 @@ import { ErrorComponent } from './error/error/error.component';
 
 const appRoutes: Routes = [
   {path: 'pet', canActivate: [AuthGuard], component: PetComponent},
-  {path: 'client', component: ClientComponent},
-  {path: 'error', component: ErrorComponent, data: {message: 'Access Denied for Pet.'}}
+  {path: 'pet/:id', component: PetComponent},
+  {path: 'client', component: ClientComponent, children: [
+    {path: ':id', component: ClientComponent}
+  ]},
+  {path: 'error', component: ErrorComponent, data: {message: 'Access Denied.'}}
 ];
 
 @NgModule({

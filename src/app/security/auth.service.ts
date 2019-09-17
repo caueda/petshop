@@ -1,10 +1,12 @@
 export class AuthService {
-  loggedIn = false;
+  loggedIn = true;
   isAuthenticated(){
     const promise = new Promise(
       (resolve, reject) => {
         setTimeout(() => {
+          console.log('before resolve');
           resolve(this.loggedIn);
+          console.log('after resolve');
         }, 800);
       }
     );
