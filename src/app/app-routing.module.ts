@@ -1,3 +1,4 @@
+import { ProductComponent } from './product/product.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from './security/auth-guard.service';
@@ -11,6 +12,8 @@ const appRoutes: Routes = [
   {path: 'client', component: ClientComponent, children: [
     {path: ':id', component: ClientComponent}
   ]},
+  {path: 'product', component: ProductComponent},
+  {path: 'product/:id', component: ProductComponent},
   {path: 'error', component: ErrorComponent, data: {message: 'Access Denied.'}}
 ];
 

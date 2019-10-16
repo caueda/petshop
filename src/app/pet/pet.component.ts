@@ -1,4 +1,4 @@
-import { RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { RouterStateSnapshot, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

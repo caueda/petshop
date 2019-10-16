@@ -29,6 +29,8 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
          CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
 import { AuthService } from './security/auth.service';
 import { ErrorComponent } from './error/error/error.component';
+import { ClientDetailComponent } from './client/client-detail/client-detail.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ErrorComponent } from './error/error/error.component';
     ClientComponent,
     PetComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    ClientDetailComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

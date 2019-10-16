@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Product</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div class="mat-padding" ngModelGroup="productData">
+      <mat-form-field>
+        <input matInput tdAutoTrim
+          placeholder="Product Name"
+          name="name"
+          ngModel
+          #name="ngModel"
+          required>
+      </mat-form-field>
+      <button class="primary">Submit</button>
+    </div>
+  </mat-card>
+</form>

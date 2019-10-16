@@ -1,13 +1,29 @@
-<form>
+<form (ngSubmit) = "onSubmit(f)" #f="ngForm">
     <mat-card>
       <mat-card-header>
         <mat-card-title>Cliente</mat-card-title>
       </mat-card-header>
       <mat-divider></mat-divider>
-      <div class="mat-padding">
+      <div class="mat-padding" ngModelGroup="petData">
         <mat-form-field>
-          <input matInput tdAutoTrim placeholder="Cliente" name=petName>
+          <input matInput tdAutoTrim
+            placeholder="Cliente"
+            name="petName"
+            ngModel
+            required
+            #petName="ngModel">
         </mat-form-field>
+        <p class="help-block" *ngIf="!petName.valid && petName.touched">Please enter a valid pet name.</p>
       </div>
+      <div class="mat-padding">
+          <ul *ngFor="let client of clients">
+            <li>{{client.name}}</li>
+          </ul>
+      </div>
+      <div class="mat-padding">
+        <button (click)="onActivate()">Activate</button>
+        <button [disabled]="!f.valid">Submit</button>
+      </div>
+      <app-client-detail></app-client-detail>
     </mat-card>
   </form>
