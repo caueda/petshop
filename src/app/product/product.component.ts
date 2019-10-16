@@ -10,7 +10,7 @@ export class ProductComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('f')
+  @ViewChild('f', {static: true})
   form: NgForm;
 
   ngOnInit() {

@@ -14,7 +14,7 @@ export class ClientComponent implements OnInit {
 
   clients = [{name: 'John'}, {name: 'Snow'}, {name: 'Southerland'}];
 
-  @ViewChild('f')
+  @ViewChild('f', {static: true})
   form: NgForm;
 
   ngOnInit() {

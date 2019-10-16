@@ -1,19 +1,43 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Product</mat-card-title>
-    </mat-card-header>
-    <mat-divider></mat-divider>
-    <div class="mat-padding" ngModelGroup="productData">
-      <mat-form-field>
-        <input matInput tdAutoTrim
-          placeholder="Product Name"
-          name="name"
-          ngModel
-          #name="ngModel"
-          required>
-      </mat-form-field>
-      <button class="primary">Submit</button>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Product</h5>
+      <div class="mat-padding" ngModelGroup="productData">
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input type="text"
+            id="name"
+            placeholder="Product Name"
+            class="form-control"
+            name="name"
+            ngModel
+            #name="ngModel"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="brand">Brand of the product</label>
+          <input type="text"
+            id="brand"
+            class="form-control"
+            placeholder="Brand of the product"
+            name="brand"
+            ngModel
+            #brand="ngModel"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input type="number"
+            class="form-control"
+            id="weight" aria-describedby="weightlHelp"
+            placeholder="Enter the weight"
+            ngModel
+            #weight="ngModel">
+          <small id="weightlHelp" class="form-text text-muted">Enter the weight of your pet</small>
+        </div>
+
+        <button class="primary">Submit</button>
+      </div>
     </div>
-  </mat-card>
+  </div>
 </form>
