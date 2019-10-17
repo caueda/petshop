@@ -1,19 +1,23 @@
 <form>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Pet</mat-card-title>
-    </mat-card-header>
-    <mat-divider></mat-divider>
-    <div class="mat-padding">
-      <mat-form-field>
-        <input matInput tdAutoTrim
-          placeholder="Pet"
-          name="petName"
-          ngModel
-          #petName="ngModel"
-          required>
-      </mat-form-field>
-      <p class="help-block" *ngIf="petName.invalid && petName.touched">Pet name is required!</p>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Pet</h4>
+      <div class="form-row">
+        <div class="col-4 mb-3">
+          <label for="name">Pet</label>
+          <input class="form-control"
+            id="name"
+            placeholder="Pet"
+            name="petName"
+            ngModel
+            #petName="ngModel"
+            [ngClass]="{'is-invalid':petName.invalid && petName.touched}"
+            required>
+          <div class="invalid-feedback">
+            Pet name is required!
+          </div>
+        </div>
+      </div>
     </div>
-  </mat-card>
+  </div>
 </form>

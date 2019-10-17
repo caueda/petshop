@@ -2,41 +2,59 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Product</h5>
-      <div class="mat-padding" ngModelGroup="productData">
-        <div class="form-group">
-          <label for="name">Product Name</label>
-          <input type="text"
-            id="name"
-            placeholder="Product Name"
-            class="form-control"
-            name="name"
-            ngModel
-            #name="ngModel"
-            required>
+      <div ngModelGroup="productData">
+        <div class="form-row">
+          <div class="col-4 mb-3">
+            <label for="name">Product Name</label>
+            <input type="text"
+              id="name"
+              placeholder="Product Name"
+              class="form-control"
+              name="name"
+              ngModel
+              #name="ngModel"
+              [ngClass]="{'is-invalid': name.invalid && name.touched}"
+              required>
+            <div class="invalid-feedback">
+              Please enter a valid product name!
+            </div>
+          </div>
+          <div class="col-4 mb-3">
+            <label for="brand">Brand of the product</label>
+            <input type="text"
+              id="brand"
+              class="form-control"
+              placeholder="Brand of the product"
+              name="brand"
+              ngModel
+              #brand="ngModel"
+              [ngClass]="{'is-invalid': brand.invalid && brand.touched}"
+              required>
+            <div class="invalid-feedback">
+              Please enter a valid brand!
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="brand">Brand of the product</label>
-          <input type="text"
-            id="brand"
-            class="form-control"
-            placeholder="Brand of the product"
-            name="brand"
-            ngModel
-            #brand="ngModel"
-            required>
-        </div>
-        <div class="form-group">
-          <label for="weight">Weight</label>
-          <input type="number"
-            class="form-control"
-            id="weight" aria-describedby="weightlHelp"
-            placeholder="Enter the weight"
-            ngModel
-            #weight="ngModel">
-          <small id="weightlHelp" class="form-text text-muted">Enter the weight of your pet</small>
+        <div class="form-row">
+          <div class="col-4 mb-3">
+            <label for="weight">Weight</label>
+            <input type="number"
+              class="form-control"
+              id="weight" aria-describedby="weightlHelp"
+              name="weight"
+              placeholder="Enter the weight"
+              ngModel
+              #weight="ngModel"
+              [ngClass]="{'is-invalid': weight.invalid && weight.touched}"
+              required>
+            <small id="weightlHelp" class="form-text text-muted">Enter the weight of your pet</small>
+            <div class="invalid-feedback">
+              Please, enter a valid weight for your pet!
+            </div>
+          </div>
         </div>
 
-        <button class="primary">Submit</button>
+        <button class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>

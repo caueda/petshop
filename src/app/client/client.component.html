@@ -1,29 +1,37 @@
-<form (ngSubmit) = "onSubmit(f)" #f="ngForm">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Cliente</mat-card-title>
-      </mat-card-header>
-      <mat-divider></mat-divider>
-      <div class="mat-padding" ngModelGroup="petData">
-        <mat-form-field>
-          <input matInput tdAutoTrim
-            placeholder="Cliente"
-            name="petName"
-            ngModel
-            required
-            #petName="ngModel">
-        </mat-form-field>
-        <p class="help-block" *ngIf="!petName.valid && petName.touched">Please enter a valid pet name.</p>
+<form (ngSubmit) = "onSubmit(f)" #f="ngForm" novalidate>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Client</h5>
+        <div class="form-row">
+            <div class="col-4 mb-3" ngModelGroup="petData">
+                <label for="name">Name</label>
+                <input class="form-control"
+                  id="name"
+                  placeholder="Cliente"
+                  name="name"
+                  ngModel
+                  required
+                  [ngClass]="{'is-invalid':!name.valid && name.touched}"
+                  #name="ngModel">
+                <div class="invalid-feedback">
+                  Please enter a valid client name.
+                </div>
+            </div>
+        </div>
+          <div class="form-row">
+            <div class="col mb-3">
+                <ul *ngFor="let client of clients">
+                  <li>{{client.name}}</li>
+                </ul>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col mb-3">
+              <button class="btn btn-secondary" (click)="onActivate()">Activate</button>
+              <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+            </div>
+          </div>
+          <app-client-detail></app-client-detail>
       </div>
-      <div class="mat-padding">
-          <ul *ngFor="let client of clients">
-            <li>{{client.name}}</li>
-          </ul>
-      </div>
-      <div class="mat-padding">
-        <button (click)="onActivate()">Activate</button>
-        <button [disabled]="!f.valid">Submit</button>
-      </div>
-      <app-client-detail></app-client-detail>
-    </mat-card>
+    </div>
   </form>
