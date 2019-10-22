@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -88,6 +88,8 @@ import { ProductComponent } from './product/product.component';
     CovalentMenuModule,
     CovalentDataTableModule,
     CovalentMessageModule,
+    /** */
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
