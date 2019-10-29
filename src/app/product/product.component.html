@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Product</h5>
-      <div formGroupName="productData">
+
         <div class="form-row">
           <div class="col-4 mb-3">
             <label for="name">Product Name</label>
@@ -12,10 +12,10 @@
               class="form-control"
               name="name"
               formControlName="name"
-              [ngClass]="{'is-invalid': name.invalid && name.touched}">
+              [ngClass]="{'is-invalid': form.controls['name'].invalid && form.controls['name'].touched}">
             <div class="invalid-feedback">
-              <span *ngIf="name.errors?.nameIsForbiden">Please enter a valid product name!</span>
-              <span *ngIf="name.errors?.required">The product name is required!</span>
+              <span *ngIf="form.controls['name'].errors && form.controls['name'].errors['nameIsForbiden']">Please enter a valid product name!</span>
+              <span *ngIf="form.controls['name'].errors && form.controls['name'].errors['required']">The product name is required!</span>
             </div>
           </div>
           <div class="col-4 mb-3">
@@ -26,9 +26,10 @@
               placeholder="Brand of the product"
               name="brand"
               formControlName="brand"
-              [ngClass]="{'is-invalid': form.get('productData.brand').invalid && form.get('productData.brand').touched}">
+              [ngClass]="{'is-invalid': form.controls['brand'].invalid && form.controls['brand'].touched}">
             <div class="invalid-feedback">
-              Please enter a valid brand!
+              <span *ngIf="form.controls['brand'].errors && form.controls['brand'].errors['isNameInvalid']">This is not a valid name for a brand!</span>
+              <span *ngIf="form.controls['brand'].errors && form.controls['brand'].errors['required']">The Brand name is required!</span>
             </div>
           </div>
         </div>
@@ -41,7 +42,7 @@
               name="weight"
               placeholder="Enter the weight"
               formControlName="weight"
-              [ngClass]="{'is-invalid': form.get('productData.weight').invalid && form.get('productData.weight').touched}">
+              [ngClass]="{'is-invalid': form.controls['weight'].invalid && form.controls['weight'].touched}">
             <small id="weightlHelp" class="form-text text-muted">Enter the weight of your pet</small>
             <div class="invalid-feedback">
               Please, enter a valid weight for your pet!
@@ -50,7 +51,7 @@
         </div>
 
         <button class="btn btn-primary">Submit</button>
-      </div>
+
     </div>
   </div>
 </form>

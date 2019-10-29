@@ -1,3 +1,4 @@
+import { CustomValidators } from './../validators/CustomValidators';
 import { Product } from './../model/product';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -19,11 +20,11 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.product = new Product('Testando', 'Ajax', 10);
     this.form = new FormGroup({
-      'productData' : new FormGroup({
+
         'name': new FormControl(this.product.name, [Validators.required, this.forbiddenNames.bind(this)]),
-        'brand': new FormControl(this.product.brand, Validators.required),
+        'brand': new FormControl(this.product.brand, [Validators.required, CustomValidators.isNameValid]),
         'weight': new FormControl(this.product.weight, Validators.required)
-      })
+
     });
   }
 
